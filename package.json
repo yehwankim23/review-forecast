@@ -1,0 +1,13 @@
+{
+  "name": "review-forecast",
+  "version": "1.0.0",
+  "dependencies": {
+    "vue": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "vite": "latest",
+    "vite-plugin-vue-devtools": "latest"
+  },
+  "type": "module"
+}
