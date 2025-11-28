@@ -33,7 +33,7 @@ watch(inputs, () => {
       <img class="h-4" src="/star.png" alt="Star" />
       <div class="ml-1 fw-b">{{ average }} ({{ count }})</div>
     </div>
-    <div class="h-10 fd-r" v-for="key in Object.keys(inputs).reverse()" v-bind:key="key">
+    <div class="h-10 fd-r" v-for="key in Object.keys(inputs).reverse()" v-bind:key="`input-${key}`">
       <div class="w-15">{{ key }}점</div>
       <progress v-bind:value="inputs[key] / count || 0"></progress>
       <input
@@ -43,6 +43,12 @@ watch(inputs, () => {
         v-on:focus="inputs[key] ||= ''"
         v-on:blur="inputs[key] ||= 0"
       />
+    </div>
+    <div class="mt-5 fd-r">
+      <div v-for="key in Object.keys(inputs).reverse()" v-bind:key="`output-${key}`">
+        <img class="m-4 h-6" v-bind:src="`/${key}.png`" alt="key" />
+        <div class="fw-b">{{ (((inputs[key] + 1) * 100) / (count + 5) || 0).toFixed(0) }}%</div>
+      </div>
     </div>
   </div>
 </template>
@@ -103,6 +109,10 @@ input::-webkit-inner-spin-button {
   margin: auto;
 }
 
+.m-4 {
+  margin: 4vmin;
+}
+
 .mt-5 {
   margin-top: 5vmin;
 }
@@ -117,6 +127,10 @@ input::-webkit-inner-spin-button {
 
 .h-4 {
   height: 4vmin;
+}
+
+.h-6 {
+  height: 6vmin;
 }
 
 .h-10 {
