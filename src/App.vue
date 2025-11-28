@@ -2,4 +2,8 @@
 
 <template></template>
 
-<style></style>
+<style>
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+</style>
