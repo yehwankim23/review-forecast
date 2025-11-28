@@ -46,9 +46,23 @@ watch(inputs, () => {
     </div>
     <div class="mt-5 fd-r">
       <div v-for="key in Object.keys(inputs).reverse()" v-bind:key="`output-${key}`">
-        <img class="m-4 h-6" v-bind:src="`/${key}.png`" alt="key" />
+        <img class="m-4 h-6" v-bind:src="`/${key}.png`" v-bind:alt="`output-${key}`" />
         <div class="fw-b">{{ (((inputs[key] + 1) * 100) / (count + 5) || 0).toFixed(0) }}%</div>
       </div>
+    </div>
+    <div class="mt-10">
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/gMmVRGEDTdk"
+        title="계산 방법"
+        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <div class="mt-5 mb-5 h-10">
+      <a href="https://github.com/yehwankim23/review-forecast" target="_blank">
+        &copy; 2025 김예환 Ye-Hwan Kim (Sam)
+      </a>
     </div>
   </div>
 </template>
@@ -105,6 +119,18 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+iframe {
+  border: none;
+  width: 90vmin;
+  height: 50vmin;
+}
+
+a {
+  font-size: 2vmin;
+  color: #404040;
+  text-decoration: none;
+}
+
 .m-a {
   margin: auto;
 }
@@ -117,8 +143,16 @@ input::-webkit-inner-spin-button {
   margin-top: 5vmin;
 }
 
+.mt-10 {
+  margin-top: 10vmin;
+}
+
 .ml-1 {
   margin-left: 1vmin;
+}
+
+.mb-5 {
+  margin-bottom: 5vmin;
 }
 
 .w-15 {
